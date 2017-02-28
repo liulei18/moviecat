@@ -1,14 +1,19 @@
-'use strict';
+(function(){
+	'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+	// 创建正在热映模块
+	var module= angular.module('moviecat.coming_soon', ['ngRoute']);
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
-  });
-}])
+	//配置模块的路由
+	module.config(['$routeProvider', function($routeProvider) {
+	  $routeProvider.when('/coming_soon', {
+	    templateUrl: 'coming_soon/view.html?v='+Math.random(),
+	    controller: 'ComingSoonController'
+	  });
+	}])
 
-.controller('View1Ctrl', [function() {
+	module.controller('ComingSoonController', ['$scope',function($scope) {
 
-}]);
+	}]);
+
+})(angular);

@@ -1,14 +1,19 @@
-'use strict';
+(function(){
+	'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+	// 创建正在热映模块
+	var module= angular.module('moviecat.in_theaters', ['ngRoute']);
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
-  });
-}])
+	//配置模块的路由
+	module.config(['$routeProvider', function($routeProvider) {
+	  $routeProvider.when('/in_theaters', {
+	    templateUrl: 'in_theaters/view.html?v='+Math.random(),
+	    controller: 'InTheatersController'
+	  });
+	}])
 
-.controller('View1Ctrl', [function() {
+	module.controller('InTheatersController', ['$scope',function($scope) {
 
-}]);
+	}]);
+
+})(angular);

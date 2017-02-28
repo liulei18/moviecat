@@ -1,14 +1,19 @@
-'use strict';
+(function(){
+	'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+	// 创建正在热映模块
+	var module= angular.module('moviecat.top250', ['ngRoute']);
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
-  });
-}])
+	//配置模块的路由
+	module.config(['$routeProvider', function($routeProvider) {
+	  $routeProvider.when('/top250', {
+	    templateUrl: 'top250/view.html?v='+Math.random(),
+	    controller: 'Top250Controller'
+	  });
+	}])
 
-.controller('View1Ctrl', [function() {
+	module.controller('Top250Controller', ['$scope',function($scope) {
 
-}]);
+	}]);
+
+})(angular);

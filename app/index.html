@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" ng-app="myApp">
+<html lang="zh-CN" ng-app="moviecat">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,14 +39,13 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">正在热映</a></li>
-            <li><a href="#">即将上映</a></li>
-            <li><a href="#">TOP</a></li>
+            <li class="active"><a href="#/in_theaters">正在热映</a></li>
+            <li><a href="#/coming_soon">即将上映</a></li>
+            <li><a href="#/top250">TOP250</a></li>
           </ul>
           
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
 
 
           
@@ -56,11 +55,23 @@
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+  <!-- 主模块 -->
+  <script type="text/javascript">
+    document.write("<script type='text/javascript' src='app.js?v="+Math.random()+"'><\/script>");
+
+  </script>
+  
+  <!-- 正在热映模块 -->
+  <script type="text/javascript">
+    document.write("<script type='text/javascript' src='in_theaters/controller.js?v="+Math.random()+"'><\/script>");
+  </script>
+  <!-- 其他子模块 -->
+  <script type="text/javascript">
+    document.write("<script type='text/javascript' src='coming_soon/controller.js?v="+Math.random()+"'><\/script>");
+  </script>
+  <script type="text/javascript">
+    document.write("<script type='text/javascript' src='top250/controller.js?v="+Math.random()+"'><\/script>");
+  </script>
+
 </body>
 </html>
