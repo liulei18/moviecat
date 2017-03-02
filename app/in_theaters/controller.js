@@ -15,13 +15,22 @@
 
 	module.controller('InTheatersController', ['$scope','HttpService',function($scope,HttpService) {
 
-		//控制器 分为两步： 1设计暴露数据 2设计暴露行为
-		$scope.subjects=[];
-        $scope.message='';
-        //该匿名函数需要挂载在全局作用域，才能被调用
-        HttpService.json('http',function(){
-
-        });
+                //控制器 分为两步： 1设计暴露数据 2设计暴露行为
+                $scope.loading=true; //开始加载
+                $scope.subjects=[];
+                $scope.message='';
+                $scope.totalCount=0;
+                
+                //该匿名函数需要挂载在全局作用域，才能被调用
+                HttpService.jsonp('http://api.douban.com//v2/movie/in_theaters',{},function(data){
+                        console.log(data);
+                        $scope.subjects=data.subjects;
+                        $scope.totalCount=data.total;
+                        $scope.loading=false;
+                        // $apply的作用就是让指定的表达式重新同步
+                        $scope.$apply();
+                        
+                });
 
         
 
