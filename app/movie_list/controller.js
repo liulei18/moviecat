@@ -3,17 +3,17 @@
 
 	
 	// 创建正在热映模块
-	var module= angular.module('moviecat.coming_soon', ['ngRoute','moviecat.services.http']);
+	var module= angular.module('moviecat.movie_list', ['ngRoute','moviecat.services.http']);
 
 	//配置模块的路由
 	module.config(['$routeProvider', function($routeProvider) {
-	  $routeProvider.when('/coming_soon/:page', {
-	    templateUrl: 'coming_soon/view.html?v='+Math.random(),
-	    controller: 'ComingSoonController'
+	  $routeProvider.when('/:category/:page', {
+	    templateUrl: 'movie_list/view.html?v='+Math.random(),
+	    controller: 'MovieListController'
 	  });
 	}])
 
-	module.controller('ComingSoonController', ['$scope','$routeParams','$route','HttpService',function($scope,$routeParams,$route,HttpService) {
+	module.controller('MovieListController', ['$scope','$routeParams','$route','HttpService',function($scope,$routeParams,$route,HttpService) {
                 var count=10;//每一页的条数
                 var page=parseInt($routeParams.page);//页码
                 var start=(page-1)*count;//起始记录
@@ -26,7 +26,7 @@
                 $scope.totalPages=0;
                 $scope.currentPage=page;
                 //该匿名函数需要挂载在全局作用域，才能被调用
-                HttpService.jsonp('http://api.douban.com//v2/movie/coming_soon',{start:start,count:count},function(data){
+                HttpService.jsonp('http://api.douban.com//v2/movie/'+$routeParams.category,{start:start,count:count},function(data){
                         console.log(data);
                         $scope.title=data.title;
                         $scope.subjects=data.subjects;

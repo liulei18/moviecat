@@ -35,13 +35,13 @@
       </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="NavController">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#/in_theaters/1">正在热映</a></li>
-            <li><a href="#/coming_soon/1">即将上映</a></li>
-            <li><a href="#/top250/1">TOP250</a></li>
+            <li ng-class="{active:type=='in_theaters'}"><a href="#/in_theaters/1">正在热映</a></li>
+            <li ng-class="{active:type=='coming_soon'}"><a href="#/coming_soon/1">即将上映</a></li>
+            <li ng-class="{active:type=='top250'}"><a href="#/top250/1">TOP250</a></li>
           </ul>
           
         </div>
@@ -66,15 +66,9 @@
   
   <!-- 正在热映模块 -->
   <script type="text/javascript">
-    document.write("<script type='text/javascript' src='in_theaters/controller.js?v="+Math.random()+"'><\/script>");
+    document.write("<script type='text/javascript' src='movie_list/controller.js?v="+Math.random()+"'><\/script>");
   </script>
-  <!-- 其他子模块 -->
-  <script type="text/javascript">
-    document.write("<script type='text/javascript' src='coming_soon/controller.js?v="+Math.random()+"'><\/script>");
-  </script>
-  <script type="text/javascript">
-    document.write("<script type='text/javascript' src='top250/controller.js?v="+Math.random()+"'><\/script>");
-  </script>
+ 
 
 </body>
 </html>
