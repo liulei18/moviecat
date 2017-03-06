@@ -27,7 +27,7 @@
                 $scope.currentPage=page;
                 //该匿名函数需要挂载在全局作用域，才能被调用
                 HttpService.jsonp('http://api.douban.com//v2/movie/'+$routeParams.category,{start:start,count:count},function(data){
-                        console.log(data);
+                        // console.log(data);
                         $scope.title=data.title;
                         $scope.subjects=data.subjects;
                         $scope.totalCount=data.total;

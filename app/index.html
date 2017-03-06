@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My AngularJS App</title>
+  <title>豆瓣电影</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="app.css?v=">
 </head>
@@ -35,13 +35,13 @@
       </div>
     </nav>
 
-    <div class="container-fluid" ng-controller="NavController">
+    <div class="container-fluid" >
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li ng-class="{active:type=='in_theaters'}"><a href="#/in_theaters/1">正在热映</a></li>
-            <li ng-class="{active:type=='coming_soon'}"><a href="#/coming_soon/1">即将上映</a></li>
-            <li ng-class="{active:type=='top250'}"><a href="#/top250/1">TOP250</a></li>
+            <li auto-focus><a href="#/in_theaters/1">正在热映</a></li>
+            <li auto-focus><a href="#/coming_soon/1">即将上映</a></li>
+            <li auto-focus><a href="#/top250/1">TOP250</a></li>
           </ul>
           
         </div>
@@ -62,6 +62,10 @@
   </script>
   <script type="text/javascript">
     document.write("<script type='text/javascript' src='components/http.js?v="+Math.random()+"'><\/script>");
+  </script>
+  <script type="text/javascript">
+    document.write("<script type='text/javascript' src='components/auto-focus.js?v="+Math.random()+"'><\/script>");
+
   </script>
   
   <!-- 正在热映模块 -->
