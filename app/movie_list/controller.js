@@ -19,14 +19,15 @@
                 var start=(page-1)*count;//起始记录
                 //控制器 分为两步： 1设计暴露数据 2设计暴露行为
                 $scope.loading=true; //开始加载
-                $scope.title='';
+                $scope.title='Loading...';
                 $scope.subjects=[];
                 $scope.message='';
                 $scope.totalCount=0;
                 $scope.totalPages=0;
                 $scope.currentPage=page;
                 //该匿名函数需要挂载在全局作用域，才能被调用
-                HttpService.jsonp('http://api.douban.com//v2/movie/'+$routeParams.category,{start:start,count:count},function(data){
+                // $routeParams的数据来源 1 路由匹配出来的 2 ?参数
+                HttpService.jsonp('http://api.douban.com//v2/movie/'+$routeParams.category,{start:start,count:count,q:$routeParams.q},function(data){
                         // console.log(data);
                         $scope.title=data.title;
                         $scope.subjects=data.subjects;
