@@ -25,9 +25,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
           </ul>
-          <form class="navbar-form navbar-right" ng-controller="SearchController" ng-submit="search()">
-            <input type="text" class="form-control" placeholder="Search..." ng-model="input">
-          </form>
+          <div search></div>
         </div>
       </div>
     </nav>
@@ -39,6 +37,7 @@
             <li auto-focus><a href="#/in_theaters/1">正在热映</a></li>
             <li auto-focus><a href="#/coming_soon/1">即将上映</a></li>
             <li auto-focus><a href="#/top250/1">TOP250</a></li>
+
           </ul>
           
         </div>
@@ -62,7 +61,10 @@
   </script>
   <script type="text/javascript">
     document.write("<script type='text/javascript' src='components/auto-focus.js?v="+Math.random()+"'><\/script>");
+  </script>
 
+  <script type="text/javascript">
+    document.write("<script type='text/javascript' src='components/search.js?v="+Math.random()+"'><\/script>");
   </script>
   
   <!-- 正在热映模块 -->
